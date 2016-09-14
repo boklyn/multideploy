@@ -7,11 +7,23 @@
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-This solution provides an example of how you can configure a modular deployment of windows servers using the concept of base templates with modular swaping in and out of code segements to add/remove functionality. This example would allow begininers a framework to learn ARM concepts. The solution have the following dependencies:
+This solution provides an example of how you can configure a modular deployment of windows servers using the concept of base templates with modular swaping in and out of code segements to add/remove functionality. This example would provide begininers with a framework to learn ARM concepts. All of the following examples leverage the multi-disk secondary template option. This solution allows you to provision a maximum of 16 additional disks with a max capacity of 16 TB. The solution have the following dependencies:
 
 1. An already pre-provisioned network. 
 2. An already pre-provisioned domain environment, if you are leveraging the domain join templates. 
 
+This solution have example templates with the folowing scenarios:
+1. Provision any number of servers with static ip address assignment
+2. Provision any number of servers with dynamic ip address assignment
+3. Provision any number of servers with static ip address assignment and join them to domain. 
+4. Provision any number of servers with static ip address assignment and leverage a custom script extenstion to create a storage pool to intialied the disk. 
+5. Provision any number of servers with static ip address assignment, custom script extension, and domain join functionality. 
+
 Getting Started with multideploy
 ================================
-The multideploy solution leverages the linked template feature of ARM. Alot of these secondary templates are expected to be stored and assessible by the main deployment sequence. In this scenario we are leveraging github to store publically all the depenedent assets. The solution however been tested sucessfullly with private github repositiory, publically and privately assessible blob containers. 
+The multideploy solution leverages the linked template feature of ARM. Alot of these secondary templates are expected to be stored and assessible by the main deployment sequence. In this scenario we are leveraging github to store publically all the depenedent assets. The solution however been tested sucessfullly with private github repositiory, publically and privately assessible blob containers. Over time this solution will be update to add the following examples:
+
+1. Create a custom netwok from scratch
+2. Provision a domain with a primary and a secondary domain controller. 
+
+The solution also provides a library of customization that are available and instructions on how to add/remove functionality through the multi-deploy documementation. 
