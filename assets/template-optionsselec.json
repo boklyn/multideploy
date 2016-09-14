@@ -1,0 +1,314 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "numDataDisks": {
+            "type": "string",
+            "allowedValues": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "32",
+                "64"
+            ],
+            "metadata": {
+                "description": "This parameter allows the user to select the number of disks they want"
+            }
+        },
+        "diskStorageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the storage account where the data disks are stored"
+            }
+        },
+        "diskCaching": {
+            "type": "string",
+            "allowedValues": [
+                "None",
+                "ReadOnly",
+                "ReadWrite"
+            ],
+            "metadata": {
+                "description": "Caching type for the data disks"
+            }
+        },
+        "folderpath": {
+            "type": "string",
+            "metadata": {
+                "description": "folder path to be created. "
+            }
+        },
+        "disksizes": {
+            "type": "array",
+            "metadata": {
+                "description": "represents the disk sizes. "
+            },
+            "defaultValue": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+        }
+    },
+    "variables": {
+        "_comment1": "disksArray is ugly :( but it gets the job done. If anyone can make it better, please do!",
+        "disksArray": {
+            "0": "",
+            "1": "[variables('dataDisks')['1']]",
+            "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
+            "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
+            "4": "[variables('diskDeltas')['4delta']]",
+            "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
+            "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
+            "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
+            "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
+            "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
+            "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
+            "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
+            "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
+            "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
+            "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
+            "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
+            "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]"
+        },
+        "dataDisks": {
+            "1": [
+                {
+                    "name": "datadisk1",
+                    "lun": 0,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk1.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[0]]"
+                }
+            ],
+            "2": [
+                {
+                    "name": "datadisk2",
+                    "lun": 1,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk2.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[1]]"
+                }
+            ],
+            "3": [
+                {
+                    "name": "datadisk3",
+                    "lun": 2,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk3.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[2]]"
+                }
+            ],
+            "4": [
+                {
+                    "name": "datadisk4",
+                    "lun": 3,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk4.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[3]]"
+                }
+            ],
+            "5": [
+                {
+                    "name": "datadisk5",
+                    "lun": 4,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk5.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[4]]"
+                }
+            ],
+            "6": [
+                {
+                    "name": "datadisk6",
+                    "lun": 5,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk6.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[5]]"
+                }
+            ],
+            "7": [
+                {
+                    "name": "datadisk7",
+                    "lun": 6,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk7.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[6]]"
+                }
+            ],
+            "8": [
+                {
+                    "name": "datadisk8",
+                    "lun": 7,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk8.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[7]]"
+                }
+            ],
+            "9": [
+                {
+                    "name": "datadisk9",
+                    "lun": 8,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk9.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[8]]"
+                }
+            ],
+            "10": [
+                {
+                    "name": "datadisk10",
+                    "lun": 9,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk10.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[9]]"
+                }
+            ],
+            "11": [
+                {
+                    "name": "datadisk11",
+                    "lun": 10,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk11.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[10]]"
+                }
+            ],
+            "12": [
+                {
+                    "name": "datadisk12",
+                    "lun": 11,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk12.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[11]]"
+                }
+            ],
+            "13": [
+                {
+                    "name": "datadisk13",
+                    "lun": 12,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk13.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[12]]"
+                }
+            ],
+            "14": [
+                {
+                    "name": "datadisk14",
+                    "lun": 13,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk14.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[13]]"
+                }
+            ],
+            "15": [
+                {
+                    "name": "datadisk15",
+                    "lun": 14,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk15.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[14]]"
+                }
+            ],
+            "16": [
+                {
+                    "name": "datadisk16",
+                    "lun": 15,
+                    "vhd": {
+                        "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/', parameters('folderpath'), 'datadisk16.vhd')]"
+                    },
+                    "createOption": "Empty",
+                    "caching": "[parameters('diskCaching')]",
+                    "diskSizeGB": "[parameters('disksizes')[15]]"
+                }
+            ]
+        },
+        "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
+        "diskDeltas": {
+            "4delta": [
+                "[variables('dataDisks')['1'][0]]",
+                "[variables('dataDisks')['2'][0]]",
+                "[variables('dataDisks')['3'][0]]",
+                "[variables('dataDisks')['4'][0]]"
+            ],
+            "8delta": [
+                "[variables('dataDisks')['5'][0]]",
+                "[variables('dataDisks')['6'][0]]",
+                "[variables('dataDisks')['7'][0]]",
+                "[variables('dataDisks')['8'][0]]"
+            ],
+            "12delta": [
+                "[variables('dataDisks')['9'][0]]",
+                "[variables('dataDisks')['10'][0]]",
+                "[variables('dataDisks')['11'][0]]",
+                "[variables('dataDisks')['12'][0]]"
+            ],
+            "16delta": [
+                "[variables('dataDisks')['13'][0]]",
+                "[variables('dataDisks')['14'][0]]",
+                "[variables('dataDisks')['15'][0]]",
+                "[variables('dataDisks')['16'][0]]"
+            ]
+
+        }
+    },
+    "resources": [ ],
+    "outputs": {
+        "dataDiskArray": {
+            "type": "array",
+            "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+        }
+    }
+}

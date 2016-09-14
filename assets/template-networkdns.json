@@ -1,0 +1,173 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "webtiersubnetname": {
+            "type": "string",
+            "metadata": {
+                "description": "webtier Subnet Name"
+            }
+        },
+        "webtiersubnetrange": {
+            "type": "string",
+            "metadata": {
+                "description": "webtier Subnet Range"
+            }
+        },
+        "gatewaySubnetName": {
+            "type": "string",
+            "metadata": {
+                "description": "gateway Subnet Name"
+            }
+        },
+        "gatewaySubnetRange": {
+            "type": "string",
+            "metadata": {
+                "description": "gateway Subnet Range"
+            }
+        },
+        "apptiersubnetname": {
+            "type": "string",
+            "metadata": {
+                "description": "app tier Subnet Name"
+            }
+        },
+        "apptiersubnetrange": {
+            "type": "string",
+            "metadata": {
+                "description": "app tier Subnet Range"
+            }
+        },
+        "admintiersubnetname": {
+            "type": "string",
+            "metadata": {
+                "description": "admin tier Subnet Name"
+            }
+        },
+        "admintiersubnetrange": {
+            "type": "string",
+            "metadata": {
+                "description": "admin tier Subnet Range"
+            }
+        },
+        "datatiersubnetname": {
+            "type": "string",
+            "metadata": {
+                "description": "data tier Subnet Name"
+            }
+        },
+        "datatiersubnetrange": {
+            "type": "string",
+            "metadata": {
+                "description": "data tier Subnet Range"
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+                "East US",
+                "West US",
+                "West Europe",
+                "North Europe",
+                "East US 2"
+            ],
+            "metadata": {
+                "description": "Deployment location"
+            }
+        },
+        "vNETAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "VNET address prefix"
+            }
+        },
+        "vNETName": {
+            "type": "string",
+            "metadata": {
+                "description": "VNET IP range"
+            }
+        },
+        "DNSServerAddress": {
+            "type": "array",
+            "metadata": {
+                "Description": "The DNS address(es) of the DNS Server(s) used by the VNET"
+            }
+        },
+        "vnetrgpname": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource group where the vnet is located. "
+            },
+            "defaultValue": "[resourceGroup().name]"
+        }
+    },
+    "variables": {
+        "webtierref": "[concat(variables('vnetID'),'/subnets/',parameters('webtiersubnetname'))]",
+        "frontEndRef": "[concat(variables('vnetID'),'/subnets/',parameters('apptiersubnetname'))]",
+        "vnetID": "[resourceId(parameters('vnetrgpname'), 'Microsoft.Network/virtualNetworks', parameters('vNETName'))]",
+        "apitiersubname": "[concat(parameters('apptiersubnetname'),'_',replace(parameters('apptiersubnetrange'),'/','_'))]",
+        "webtiersubname": "[concat(parameters('webtiersubnetname'),'_',replace(parameters('webtiersubnetrange'),'/','_'))]",
+        "datatiersubname": "[concat(parameters('datatiersubnetname'),'_',replace(parameters('datatiersubnetrange'),'/','_'))]",
+        "admintiersubname": "[concat(parameters('admintiersubnetname'),'_',replace(parameters('admintiersubnetrange'),'/','_'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('vNETName')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[parameters('location')]",
+            "apiVersion": "2015-06-15",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vNETAddressPrefix')]"
+                    ]
+                },
+                "dhcpOptions": {
+                    "dnsServers": "[parameters('DNSServerAddress')]"
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('apitiersubname')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('apptiersubnetrange')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('webtiersubname')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('webtiersubnetrange')]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('gatewaySubnetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('gatewaySubnetRange')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('datatiersubname')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('datatiersubnetrange')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('admintiersubname')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('admintiersubnetrange')]"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "backsunet": {
+            "value": "[variables('webtiersubname')]",
+            "type": "string"
+        },
+        "frontsubnet": {
+            "value": "[variables('apitiersubname')]",
+            "type": "string"
+        }
+    }
+}

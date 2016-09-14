@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "deploychoice": {
+        "type": "string",
+        "metadata": {
+          "description": "Base template config"
+        },
+        "allowedValues": [
+          "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-template-multisvrdeploy_withkey.cse.domain.json?token=AMNanD48nDTtmmYEIPu4HGNclohiSYNIks5X4ZTawA%3D%3D"
+        ],
+        "defaultValue": "https://raw.githubusercontent.com/Mincom/epm-devops/master/Deployment/Velocity/vso-template-multisvrdeploy_withkey.cse.domain.json?token=AMNanMUiHu4Rr2Ro51dBgsiFBFDVrXMMks5X0xp4wA%3D%3D"
+      },
+        "paramchoice": {
+            "type": "string",
+          "metadata": {
+            "description": "Workstation Type to Deploy"
+          },
+          "allowedValues": [
+            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.analysts.svrs.json?token=AMNanMcJz4fXI3KN-51cLXswtnkbNSvoks5X0yYbwA%3D%3D",
+            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.dataservices.svrs.json?token=AMNanArMzoeSfpJXrhOShtCrn1ZQCUNVks5X0yZdwA%3D%3D",
+            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.gisanalysts.svrs.json?token=AMNanJLJwNpT1g4hxEeaOvfyguk6UR-oks5X0yZ1wA%3D%3D"
+          ]
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "ProductionDeployment",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[parameters('deploychoice')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parametersLink": {
+                    "uri": "[parameters('paramchoice')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
+        }
+    ]
+}
