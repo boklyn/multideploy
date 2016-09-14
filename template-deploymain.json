@@ -8,14 +8,18 @@
           "description": "Base template config"
         },
         "allowedValues": [
-          "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-template-multisvrdeploy_withkey.cse.domain.json?token=AMNanD48nDTtmmYEIPu4HGNclohiSYNIks5X4ZTawA%3D%3D"
-        ],
-        "defaultValue": "https://raw.githubusercontent.com/Mincom/epm-devops/master/Deployment/Velocity/vso-template-multisvrdeploy_withkey.cse.domain.json?token=AMNanMUiHu4Rr2Ro51dBgsiFBFDVrXMMks5X0xp4wA%3D%3D"
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-all.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-cse.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-domainjoin.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-dynamicip.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-staticip.json"
+        ]
+        
       },
         "paramchoice": {
             "type": "string",
           "metadata": {
-            "description": "Workstation Type to Deploy"
+            "description": "parameter deploy option"
           },
           "allowedValues": [
             "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.analysts.svrs.json?token=AMNanMcJz4fXI3KN-51cLXswtnkbNSvoks5X0yYbwA%3D%3D",
