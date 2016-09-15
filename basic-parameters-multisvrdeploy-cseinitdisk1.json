@@ -39,7 +39,7 @@
       "value": "cust1w1dr-nic-"
     },
     "vmnames": {
-      "value": [ "cust1e1-bld-06" ]
+      "value": [ "cust1e1-test-07" ]
     },
     "vmSizes": {
       "value": [ "Standard_DS2" ]

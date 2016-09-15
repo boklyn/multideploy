@@ -266,9 +266,6 @@
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmnames')[copyIndex()]]",
           "location": "[resourceGroup().location]",
-          "tags": {
-            "tag1": "[parameters('tag1')[copyIndex()]]"
-          },
           "dependsOn": [
             "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('nicnameformat'), copyIndex(parameters('nicoffset'))))]",
             "[resourceId('Microsoft.Resources/deployments', concat(toLower(parameters('vmnames')[copyIndex()]),'-disksel'))]"
