@@ -22,7 +22,7 @@ This solution have example templates with the folowing scenarios:
 
 Getting Started with multideploy
 ================================
-The multideploy solution leverages the linked template feature of ARM. Alot of these secondary templates are expected to be stored and assessible by the main deployment sequence. In this scenario we are leveraging github to store publically all the depenedent assets. The solution however been tested sucessfullly with private github repositiory, publically and privately assessible blob containers. Over time this solution will be update to add the following examples:
+The multideploy solution leverages the linked template feature of ARM. Alot of these secondary templates are expected to be stored and assessible by the main deployment sequence. In this scenario we are leveraging github to store publically all the depenedent assets. The solution however been tested sucessfullly with private github repositiory, publically and privately assessible blob containers. Over time this solution will be updated to add the following examples:
 
 1. Provision a domain with a primary and a secondary domain controller. 
 2. Create a keyvault and add secrets to the keyvault.  
