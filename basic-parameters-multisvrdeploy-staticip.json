@@ -15,7 +15,7 @@
       "value": "test1"
     },
     "existingSubnetName": {
-      "value": "cust1e1-sub-003"
+      "value": "cust1e1-sub-003_172.26.14.0_24"
     },
     "vmAdminUsername": {
       "value": "localadmin"
