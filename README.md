@@ -11,6 +11,7 @@ This solution provides an example of how you can configure a modular deployment 
 
 1. An already pre-provisioned network. 
 2. An already pre-provisioned domain environment, if you are leveraging the domain join templates. 
+3. At least one storage account to hold the virtual disks, and the windows OS diagnostic logs. Ideally you can specify two. 
 
 This solution have example templates with the folowing scenarios:
 1. Provision any number of servers with static ip address assignment
