@@ -9,7 +9,7 @@
 
 This solution provides an example of how you can configure a modular deployment of windows servers using the concept of base templates with modular swaping in and out of code segements to add/remove functionality. This example would provide begininers with a framework to learn ARM concepts. All of the following examples leverage the multi-disk secondary template option. This solution allows you to provision a maximum of 16 additional disks with a max capacity of 16 TB. The solution have the following dependencies:
 
-1. An already pre-provisioned network. 
+1. An already pre-provisioned network. We provide an option to create a network from our templates
 2. An already pre-provisioned domain environment, if you are leveraging the domain join templates. 
 3. At least one storage account to hold the virtual disks, and the windows OS diagnostic logs. Ideally you can specify two. 
 
@@ -24,9 +24,8 @@ Getting Started with multideploy
 ================================
 The multideploy solution leverages the linked template feature of ARM. Alot of these secondary templates are expected to be stored and assessible by the main deployment sequence. In this scenario we are leveraging github to store publically all the depenedent assets. The solution however been tested sucessfullly with private github repositiory, publically and privately assessible blob containers. Over time this solution will be update to add the following examples:
 
-1. Create a custom netwok from scratch
-2. Provision a domain with a primary and a secondary domain controller. 
-3. Create a keyvault and add secrets to the keyvault.  
+1. Provision a domain with a primary and a secondary domain controller. 
+2. Create a keyvault and add secrets to the keyvault.  
 
 The solution also provides a library of customizations that are available and instructions on how to add/remove functionality through the MultiServerDeployDoc documementation. 
 
