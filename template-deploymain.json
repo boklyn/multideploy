@@ -25,7 +25,8 @@
           },
           "allowedValues": [
             "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-network.json",
-            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-storage.json"
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-storage.json",
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-multisvrdeploy-staticip.json"
           ]
         }
     },
