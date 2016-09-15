@@ -29,3 +29,11 @@ The multideploy solution leverages the linked template feature of ARM. Alot of t
 3. Create a keyvault and add secrets to the keyvault.  
 
 The solution also provides a library of customizations that are available and instructions on how to add/remove functionality through the MultiServerDeployDoc documementation. 
+
+Pre-requisites
+==============
+This solution is heavily dependent on the following ARM concepts. It is advisable that you understand these concepts before leveraging the solution. 
+•	Copyindex function: https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/#copyindex
+•	Copy resource/nested resourcing functionality: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-multiple/
+•	Template linking: https://azure.microsoft.com/en-us/documentation/articles/resource-group-linked-templates/
+•	Resource dependencies: https://azure.microsoft.com/en-us/documentation/articles/resource-group-define-dependencies/
