@@ -103,7 +103,8 @@
       "type": "securestring",
       "metadata": {
         "description": "the secure location of the opetion selector"
-      }
+      },
+      "defaultValue": ""
     },
     "nicoffset": {
       "type": "int",
