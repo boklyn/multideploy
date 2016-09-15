@@ -12,9 +12,11 @@
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-cse.json",
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-domainjoin.json",
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-dynamicip.json",
-          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-staticip.json"
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-staticip.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-network.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-storage.json"
         ]
-        
+
       },
         "paramchoice": {
             "type": "string",
@@ -22,28 +24,27 @@
             "description": "parameter deploy option"
           },
           "allowedValues": [
-            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.analysts.svrs.json?token=AMNanMcJz4fXI3KN-51cLXswtnkbNSvoks5X0yYbwA%3D%3D",
-            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.dataservices.svrs.json?token=AMNanArMzoeSfpJXrhOShtCrn1ZQCUNVks5X0yZdwA%3D%3D",
-            "https://raw.githubusercontent.com/Mincom/epm-devops/master/Velocity/vso-parameters-key.gisanalysts.svrs.json?token=AMNanJLJwNpT1g4hxEeaOvfyguk6UR-oks5X0yZ1wA%3D%3D"
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-network.json",
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-storage.json"
           ]
         }
     },
     "resources": [
-        {
-            "apiVersion": "2015-01-01",
-            "name": "ProductionDeployment",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[parameters('deploychoice')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parametersLink": {
-                    "uri": "[parameters('paramchoice')]",
-                    "contentVersion": "1.0.0.0"
-                }
-            }
+      {
+        "apiVersion": "2015-01-01",
+        "name": "ProductionDeployment",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[parameters('deploychoice')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[parameters('paramchoice')]",
+            "contentVersion": "1.0.0.0"
+          }
         }
+      }
     ]
 }

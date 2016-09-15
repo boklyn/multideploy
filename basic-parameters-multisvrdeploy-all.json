@@ -1,0 +1,69 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "diagStorageAccountName": {
+      "value": "bokw6drstor01"
+    },
+    "VHDStorageAccountName": {
+      "value": "bokw6drstor02"
+    },
+    "existingVNETName": {
+      "value": "cust1e1-vnet-001"
+    },
+    "vnetrgpname": {
+      "value": "multideploydemo"
+    },
+    "existingSubnetName": {
+      "value": "demosubnet"
+    },
+    "vmAdminUsername": {
+      "value": "localadmin"
+    },
+    "vmAdminPassword": {
+      "value": "p@ssw0rd!"
+    },
+    "optionsselectpath": {
+      "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/template-optionsselec.json"
+    },
+    "initidiskpath": {
+      "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/initdisk_cse.ps1"
+    },
+    "nicoffset": {
+      "value": 1
+    },
+    "sitecount": {
+      "value": 1
+    },
+    "nicnameformat": {
+      "value": "cust1w1dr-nic-"
+    },
+    "vmnames": {
+      "value": [ "cust1e1-bld-05" ]
+    },
+    "vmSizes": {
+      "value": [ "Standard_DS2" ]
+    },
+    "vmstaticips": {
+      "value": [ "172.26.14.17" ]
+    },
+    "diskcount": {
+      "value": [ 1 ]
+    },
+    "disksizes": {
+      "value": [
+        [ 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      ]
+    },
+    "initdisksizes": {
+      "value": [
+        "50"
+      ]
+    },
+    "windowsOSversion": {
+      "value": [
+        "2012-R2-Datacenter"
+      ]
+    }
+  }
+}

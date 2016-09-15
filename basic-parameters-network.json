@@ -1,0 +1,19 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "webtiersubnetname": { "value": "cust1e1-sub-001" },
+    "webtiersubnetrange": { "value": "172.26.2.0/24" },
+    "gatewaySubnetName": { "value": "GatewaySubnet" },
+    "gatewaySubnetRange": { "value": "172.26.0.0/28" },
+    "apptiersubnetname": { "value": "cust1e1-sub-002" },
+    "apptiersubnetrange": { "value": "172.26.8.0/24" },
+    "admintiersubnetname": { "value": "cust1e1-sub-003" },
+    "admintiersubnetrange": { "value": "172.26.14.0/24" },
+    "datatiersubnetname": { "value": "cust1e1-sub-004" },
+    "datatiersubnetrange": { "value": "172.26.12.0/24" },
+    "location": { "value": "East US" },
+    "vnetaddressprefix": { "value": "172.26.0.0/20" },
+    "vnetname": { "value": "cust1e1-vnet-001" }
+  }
+}

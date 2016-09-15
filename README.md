@@ -26,5 +26,6 @@ The multideploy solution leverages the linked template feature of ARM. Alot of t
 
 1. Create a custom netwok from scratch
 2. Provision a domain with a primary and a secondary domain controller. 
+3. Create a keyvault and add secrets to the keyvault.  
 
-The solution also provides a library of customization that are available and instructions on how to add/remove functionality through the multi-deploy documementation. 
+The solution also provides a library of customizations that are available and instructions on how to add/remove functionality through the MultiServerDeployDoc documementation. 
