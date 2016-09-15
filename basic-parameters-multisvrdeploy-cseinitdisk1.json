@@ -26,8 +26,11 @@
     "optionsselectpath": {
       "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/template-optionsselec.json"
     },
+    "initidiskpath": {
+      "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/initdisk_cse.ps1"
+    },
     "nicoffset": {
-      "value": 1
+      "value": 2
     },
     "sitecount": {
       "value": 1
@@ -36,13 +39,13 @@
       "value": "cust1w1dr-nic-"
     },
     "vmnames": {
-      "value": [ "cust1e1-bld-05" ]
+      "value": [ "cust1e1-bld-06" ]
     },
     "vmSizes": {
       "value": [ "Standard_DS2" ]
     },
     "vmstaticips": {
-      "value": [ "172.26.14.17" ]
+      "value": [ "172.26.14.18" ]
     },
     "diskcount": {
       "value": [ 1 ]
@@ -50,6 +53,11 @@
     "disksizes": {
       "value": [
         [ 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      ]
+    },
+    "initdisksizes": {
+      "value": [
+        "40", "40"
       ]
     },
     "windowsOSversion": {

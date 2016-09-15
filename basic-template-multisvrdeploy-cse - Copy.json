@@ -100,11 +100,10 @@
       }
     },
     "initidiskpath": {
-      "type": "securestring",
+      "type": "string",
       "metadata": {
         "description": "the secure location of the opetion selector"
-      },
-      "defaultValue": ""
+      }
     },
     "nicoffset": {
       "type": "int",
@@ -159,8 +158,7 @@
       "type": "array",
       "metadata": {
         "description": "the sizes to initialize the disks."
-      },
-      "defaultValue": [ "" ]
+      }
     },
     "imagePublisher": {
       "type": "string",
@@ -268,6 +266,9 @@
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmnames')[copyIndex()]]",
           "location": "[resourceGroup().location]",
+          "tags": {
+            "tag1": "[parameters('tag1')[copyIndex()]]"
+          },
           "dependsOn": [
             "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('nicnameformat'), copyIndex(parameters('nicoffset'))))]",
             "[resourceId('Microsoft.Resources/deployments', concat(toLower(parameters('vmnames')[copyIndex()]),'-disksel'))]"
@@ -313,6 +314,30 @@
                 "enabled": "true",
                 "storageUri": "[concat('http://',parameters('diagStorageAccountName'),'.blob.core.windows.net')]"
               }
+            }
+          }
+        },
+        {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "name": "[concat(parameters('vmnames')[copyIndex()],'/cseexec')]",
+          "apiVersion": "2015-05-01-preview",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmnames')[copyIndex()])]",
+            "[resourceId('Microsoft.Resources/deployments', concat(toLower(parameters('vmnames')[copyIndex()]),'-disksel'))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.3",
+            "autoUpgradeMinorVersion": "true",
+            "settings": {
+              "fileUris": [
+                "[concat(parameters('initidiskpath'),'initdisk_cse.ps1')]"
+              ]
+            },
+            "protectedSettings": {
+              "commandToExecute": "[concat('powershell.exe -Executionpolicy Unrestricted  -File ','initdisk_cse.ps1 -disks ', parameters('initdisksizes')[copyIndex()])]"
             }
           }
         }

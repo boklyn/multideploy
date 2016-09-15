@@ -9,8 +9,7 @@
         },
         "allowedValues": [
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-all.json",
-          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-cse.json",
-          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-domainjoin.json",
+          "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-csesame.json",
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-dynamicip.json",
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-multisvrdeploy-staticip.json",
           "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-template-network.json",
@@ -26,7 +25,8 @@
           "allowedValues": [
             "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-network.json",
             "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-storage.json",
-            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-multisvrdeploy-staticip.json"
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-multisvrdeploy-staticip.json",
+            "https://raw.githubusercontent.com/boklyn/multideploy/master/basic-parameters-multisvrdeploy-cseinitdisk1.json"
           ]
         }
     },

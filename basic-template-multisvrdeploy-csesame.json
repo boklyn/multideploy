@@ -100,9 +100,9 @@
       }
     },
     "initidiskpath": {
-      "type": "securestring",
+      "type": "string",
       "metadata": {
-        "description": "the secure location of the opetion selector"
+        "description": "the secure location of the initdiskpath"
       }
     },
     "nicoffset": {
@@ -189,10 +189,11 @@
       }
     },
     "tag1": {
-      "type": "array",
+      "type": "string",
       "metadata": {
         "description": "The type of developer machines. "
-      }
+      },
+      "defaultValue": ""
     }
   },
   "variables": {
@@ -332,7 +333,7 @@
             "autoUpgradeMinorVersion": "true",
             "settings": {
               "fileUris": [
-                "[concat(parameters('initidiskpath'),'initdisk_cse.ps1')]"
+                "[parameters('initidiskpath')]"
               ]
             },
             "protectedSettings": {
