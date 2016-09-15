@@ -189,12 +189,12 @@
       }
     },
     "tag1": {
-      "type": "array",
+      "type": "string",
       "metadata": {
         "description": "The type of developer machines. "
-      }
-    },
-    "defaultValue": ""
+      },
+      "defaultValue": ""
+    }
   },
   "variables": {
     "apiVersion": "2015-06-15",
@@ -267,7 +267,7 @@
           "name": "[parameters('vmnames')[copyIndex()]]",
           "location": "[resourceGroup().location]",
           "tags": {
-            "tag1": "[parameters('tag1')[copyIndex()]]"
+            "tag1": "[parameters('tag1')]"
           },
           "dependsOn": [
             "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('nicnameformat'), copyIndex(parameters('nicoffset'))))]",

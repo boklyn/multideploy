@@ -190,7 +190,7 @@
       }
     },
     "tag1": {
-      "type": "array",
+      "type": "string",
       "metadata": {
         "description": "The type of developer machines. "
       },
