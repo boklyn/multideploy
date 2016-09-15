@@ -26,9 +26,6 @@
     "optionsselectpath": {
       "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/template-optionsselec.json"
     },
-    "initidiskpath": {
-      "value": "https://raw.githubusercontent.com/boklyn/multideploy/master/assets/initdisk_cse.ps1"
-    },
     "nicoffset": {
       "value": 1
     },
