@@ -193,7 +193,8 @@
       "metadata": {
         "description": "The type of developer machines. "
       }
-    }
+    },
+    "defaultValue": ""
   },
   "variables": {
     "apiVersion": "2015-06-15",
