@@ -35,10 +35,10 @@ The solution also provides a library of customizations that are available and in
 4. Custom Script Extension. 
 
 The following options are on the roadmap of being added
+
 1. DSC Extension support
 2. Public IP Integration Support
-3. Time Zone and other Windows OS customizations
-4. 
+3. Time Zone and other Windows OS customizations 
 
 Pre-requisites
 ==============
