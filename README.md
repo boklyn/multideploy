@@ -27,7 +27,18 @@ The multideploy solution leverages the linked template feature of ARM. Alot of t
 1. Provision a domain with a primary and a secondary domain controller. 
 2. Create a keyvault and add secrets to the keyvault.  
 
-The solution also provides a library of customizations that are available and instructions on how to add/remove functionality through the MultiServerDeployDoc documementation. 
+The solution also provides a library of customizations that are available and instructions on how to add/remove functionality through the MultiServerDeployDoc documementation. The library currrently consist of the following:
+
+1. Dynamic IP 
+2. Leveraging Domain Join Extension
+3. Tagging
+4. Custom Script Extension. 
+
+The following options are on the roadmap of being added
+1. DSC Extension support
+2. Public IP Integration Support
+3. Time Zone and other Windows OS customizations
+4. 
 
 Pre-requisites
 ==============
