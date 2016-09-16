@@ -194,7 +194,8 @@
       "type": "array",
       "metadata": {
         "description": "The type of developer machines. "
-      }
+      },
+      "defaultValue": [""]
     }
   },
   "variables": {
