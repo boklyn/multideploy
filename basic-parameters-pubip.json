@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "pubipnameformat": {
+      "value": "abbsc-vsopip-0"
+    },
+    "pubipoffset": {
+      "value": 4
+    },
+    "pubipcount": {
+      "value": 3
+    }
+  }
+}

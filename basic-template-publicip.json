@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "pubipnameformat": {
+      "type": "string",
+      "metadata": {
+        "description": "The names of the new storage account created to store the VMs disks. Remember reccomended max vhd disk is 40"
+      }
+    },
+    "pubipoffset": {
+      "type": "int",
+      "metadata": {
+        "description": "the nic offset count for the naming of the nic"
+      }
+    },
+    "pubipcount": {
+      "type": "int",
+      "metadata": {
+        "description": "the nic offset count for the naming of the nic"
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": "2015-05-01-preview"
+  },
+  "resources": [
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[concat(parameters('pubipnameformat'), copyIndex(parameters('pubipoffset')))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic"
+      },
+      "copy": {
+        "name": "publicipcopy",
+        "count": "[parameters('pubipcount')]"
+      }
+    }
+  ]
+}
