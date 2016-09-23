@@ -13,9 +13,9 @@ Configuration ConfigureLCMforAAPull
             
         [Int]$ConfigurationModeFrequencyMins = 15,
             
-        [String]$ConfigurationMode = "ApplyAndMonitor",
+        [String]$ConfigurationMode = "ApplyAndAutoCorrect",
             
-        [String]$NodeConfigurationName = "ABB_is_default.boklinux2",
+        [String]$NodeConfigurationName = "ABB_is_default.boklinux4",
 
         [Boolean]$RebootNodeIfNeeded= $True,
 
@@ -38,7 +38,7 @@ Configuration ConfigureLCMforAAPull
 
     if(!$ConfigurationMode -or $ConfigurationMode -eq "")
     {
-        $ConfigurationMode = "ApplyAndMonitor"
+        $ConfigurationMode = "ApplyAndAutoCorrect"
     }
 
         if(!$ActionAfterReboot -or $ActionAfterReboot -eq "")
@@ -46,15 +46,8 @@ Configuration ConfigureLCMforAAPull
         $ActionAfterReboot = "ContinueConfiguration"
     }
 
-    if(!$NodeConfigurationName -or $NodeConfigurationName -eq "")
-    { 
-        $ConfigurationNames = $null
-    }
-    else
-    {
-        $ConfigurationNames = @($NodeConfigurationName)
-    }  
-
+    $ConfigurationNames = $NodeConfigurationName
+	
     Settings
     {
         RefreshFrequencyMins = $RefreshFrequencyMins
