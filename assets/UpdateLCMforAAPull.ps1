@@ -1,4 +1,4 @@
-[DscLocalConfigurationManager()]
+[DSCLocalConfigurationManager()]
 Configuration ConfigureLCMforAAPull
 {
     param
@@ -13,9 +13,9 @@ Configuration ConfigureLCMforAAPull
             
         [Int]$ConfigurationModeFrequencyMins = 15,
             
-        [String]$ConfigurationMode = "ApplyAndAutoCorrect",
+        [String]$ConfigurationMode = "ApplyAndMonitor",
             
-        [String]$NodeConfigurationName = "ABB_is_default.boklinux4",
+        [String]$NodeConfigurationName = "ABB_is_default.boklinux2",
 
         [Boolean]$RebootNodeIfNeeded= $True,
 
@@ -38,7 +38,7 @@ Configuration ConfigureLCMforAAPull
 
     if(!$ConfigurationMode -or $ConfigurationMode -eq "")
     {
-        $ConfigurationMode = "ApplyAndAutoCorrect"
+        $ConfigurationMode = "ApplyAndMonitor"
     }
 
         if(!$ActionAfterReboot -or $ActionAfterReboot -eq "")
@@ -46,8 +46,15 @@ Configuration ConfigureLCMforAAPull
         $ActionAfterReboot = "ContinueConfiguration"
     }
 
-    $ConfigurationNames = $NodeConfigurationName
-	
+    if(!$NodeConfigurationName -or $NodeConfigurationName -eq "")
+    { 
+        $ConfigurationNames = $null
+    }
+    else
+    {
+        $ConfigurationNames = @($NodeConfigurationName)
+    }  
+
     Settings
     {
         RefreshFrequencyMins = $RefreshFrequencyMins
@@ -78,3 +85,4 @@ Configuration ConfigureLCMforAAPull
         RegistrationKey = $RegistrationKey.GetNetworkCredential().Password
     }
 }
+ConfigureLCMforAAPull
