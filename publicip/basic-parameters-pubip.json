@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "pubipnameformat": {
-      "value": "abbsc-vsopip-0"
+      "value": "cust1-pip-0"
     },
     "pubipoffset": {
       "value": 4

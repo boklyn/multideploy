@@ -33,11 +33,13 @@ The solution also provides a library of customizations that are available and in
 2. Leveraging Domain Join Extension
 3. Tagging
 4. Custom Script Extension. 
+5. Provison any number of public IP(s) through the seperate provision IP template. 
+(You would need to have the Public IP template parameter file configured prior to executing the public IP option. Please see detailed instructions in the publicip folder for additional info)
+
 
 The following options are on the roadmap of being added
 
 1. DSC Extension support
-2. Public IP Integration Support
 3. Time Zone and other Windows OS customizations 
 
 Pre-requisites
